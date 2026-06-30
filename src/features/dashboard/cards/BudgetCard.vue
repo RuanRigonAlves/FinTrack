@@ -1,12 +1,10 @@
 <template>
   <DashboardCard>
     <template #header>
-      <div class="d-flex align-center ga-2">
+      <div class="d-flex align-center ga-2 font-weight-medium py-6">
         <v-icon>mdi-wallet</v-icon>
         Total Budget
       </div>
-
-      <v-btn variant="plain"> Ver todos </v-btn>
     </template>
 
     <template #content> Content </template>
@@ -15,5 +13,5 @@
 
 <script setup>
 // Imports
-import DashboardCard from '@/features/dashboard/DashboardCard.vue'
+import DashboardCard from '../components/DashboardCard.vue'
 </script>
