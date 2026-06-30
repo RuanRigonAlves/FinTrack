@@ -7,6 +7,7 @@ export function useTransactions() {
   // Store
   const store = useTransactionStore()
 
+  // Transactions
   const transactions = computed(() => {
     return store.transactions.map((transaction) => ({
       ...transaction,
@@ -17,7 +18,14 @@ export function useTransactions() {
     }))
   })
 
+  // Recurring Transactions
+  const recurringTransactions = computed(() => {
+    console.log(transactions)
+    return transactions.value.filter((transaction) => transaction.isRecuring)
+  })
+
   return {
     transactions,
+    recurringTransactions,
   }
 }
