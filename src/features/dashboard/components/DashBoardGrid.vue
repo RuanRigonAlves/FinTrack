@@ -5,7 +5,7 @@
 
     <div class="dashboard-column">
       <GoalsCard></GoalsCard>
-      <TransactionsCard></TransactionsCard>
+      <LargestExpenses></LargestExpenses>
     </div>
 
     <div class="dashboard-column">
@@ -21,6 +21,7 @@ import BudgetCard from '@/features/dashboard/cards/BudgetCard.vue'
 import TransactionsCard from '../cards/TransactionsCard.vue'
 import RecurringCard from '../cards/RecurringCard.vue'
 import GoalsCard from '../cards/GoalsCard.vue'
+import LargestExpenses from '../cards/LargestExpenses.vue'
 </script>
 
 <style scoped>

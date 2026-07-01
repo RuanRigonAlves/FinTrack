@@ -37,8 +37,20 @@ export function useTransactions() {
     return transactions.value.filter((transaction) => transaction.isRecuring)
   })
 
+  const largestExpenses = computed(() => {
+    const largestExpenses = transactions.value.filter(
+      (transaction) => transaction.type === 'expense' && !transaction.isRecuring,
+    )
+
+    // Ordenar por "amount"
+    largestExpenses.sort((a, b) => b.amount - a.amount)
+
+    return largestExpenses
+  })
+
   return {
     transactions,
     recurringTransactions,
+    largestExpenses,
   }
 }
