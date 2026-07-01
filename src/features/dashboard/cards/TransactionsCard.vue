@@ -6,11 +6,22 @@
     </template>
 
     <template #side="{ item }">
-      <div :class="item.color">{{ item.signal }} R$ {{ item.amount }}</div>
+      <div
+        class="d-flex align-center text-body-small text-cente px-3 rounded-pill font-weight-medium text-medium-emphasis"
+        style="background-color: #f3f3f3"
+      >
+        {{ item.categoryGroup }}
+      </div>
 
       |
 
-      <div class="font-weight-regular">
+      <div class="text-end font-weight-medium" :class="item.color" style="min-width: 80px">
+        {{ item.signal }} R$ {{ item.amount }}
+      </div>
+
+      |
+
+      <div class="font-weight-medium text-medium-emphasis">
         <v-icon size="small"> mdi-calendar </v-icon>
 
         {{ item.formattedDayMonth }}

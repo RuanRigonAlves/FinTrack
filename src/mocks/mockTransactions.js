@@ -39,4 +39,14 @@ export const mockTransactions = [
     date: '10-06/2026',
     isRecuring: false,
   },
+  {
+    id: 5,
+    accountId: 1,
+    type: 'expense',
+    amount: 20,
+    categoryId: 4,
+    description: 'Spotify',
+    date: '10-06/2026',
+    isRecuring: true,
+  },
 ]

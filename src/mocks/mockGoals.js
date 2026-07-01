@@ -1,0 +1,32 @@
+export const mockGoals = [
+  {
+    id: 1,
+    name: 'Emergency Fund',
+    targetAmount: 10000,
+    currentAmount: 3500,
+    deadline: '31-12/2026',
+    categoryId: null,
+    icon: 'mdi-shield-home',
+    color: 'blue',
+  },
+  {
+    id: 2,
+    name: 'New Car',
+    targetAmount: 45000,
+    currentAmount: 12800,
+    deadline: '30-06/2027',
+    categoryId: null,
+    icon: 'mdi-car',
+    color: 'green',
+  },
+  {
+    id: 3,
+    name: 'Vacation',
+    targetAmount: 8000,
+    currentAmount: 5400,
+    deadline: '15-01/2027',
+    categoryId: null,
+    icon: 'mdi-airplane',
+    color: 'orange',
+  },
+]

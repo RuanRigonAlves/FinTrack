@@ -4,7 +4,7 @@
     <BudgetCard />
 
     <div class="dashboard-column">
-      <TransactionsCard></TransactionsCard>
+      <GoalsCard></GoalsCard>
       <TransactionsCard></TransactionsCard>
     </div>
 
@@ -20,6 +20,7 @@
 import BudgetCard from '@/features/dashboard/cards/BudgetCard.vue'
 import TransactionsCard from '../cards/TransactionsCard.vue'
 import RecurringCard from '../cards/RecurringCard.vue'
+import GoalsCard from '../cards/GoalsCard.vue'
 </script>
 
 <style scoped>
