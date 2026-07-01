@@ -1,11 +1,10 @@
 <template>
-  <v-sheet
-    class="card rounded-lg border-thin border-opacity-25 d-flex flex-column h-100 overflow-hidden"
-  >
+  <v-sheet class="card rounded-lg d-flex flex-column h-100 overflow-hidden" elevation="1">
     <header class="d-flex justify-space-between align-center px-4" :class="headerClass">
       <slot name="header"> </slot>
     </header>
-    <v-divider />
+
+    <v-divider> </v-divider>
 
     <section class="card-content" :class="contentClass">
       <slot name="content"> </slot>

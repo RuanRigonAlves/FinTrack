@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent floating class="bg-background">
+  <v-navigation-drawer permanent class="bg-background">
     <!-- Title -->
     <div class="pt-2">
       <v-list-item
@@ -22,7 +22,7 @@
       :to="page.url"
       density="compact"
       variant="text"
-      class="ml-3 mb-1 rounded-pill text-title-small text-medium-emphasis"
+      class="mb-1 mx-3 rounded-pill text-title-small text-medium-emphasis"
     >
       <v-icon class="mr-1" size="21">mdi-view-dashboard</v-icon>
       {{ page.name }}
@@ -50,7 +50,7 @@ const pages = [
 
 <style scoped>
 .custom-item {
-  color: #000000 !important;
+  /* color: #000000 !important; */
   opacity: 1 !important;
 }
 </style>

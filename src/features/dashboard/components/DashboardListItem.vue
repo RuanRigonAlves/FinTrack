@@ -1,5 +1,5 @@
 <template>
-  <v-list-item class="mx-1 mb-1 border rounded">
+  <v-list-item class="mx-1 mb-1 rounded">
     <div class="d-flex justify-space-between align-center">
       <div class="d-flex align-center ga-4 font-weight-semibold">
         <v-icon size="x-large" class="bg-background rounded-pill">{{ item.icon }}</v-icon>

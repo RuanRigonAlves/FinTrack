@@ -8,7 +8,7 @@
     <template #side="{ item }">
       <div
         class="d-flex align-center text-body-small text-cente px-3 rounded-pill font-weight-medium text-medium-emphasis"
-        style="background-color: #f3f3f3"
+        style="background-color: rgb(var(--v-theme-content))"
       >
         Monthly
       </div>
