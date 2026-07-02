@@ -2,7 +2,7 @@
 import { useCategoriesStore } from '@/stores/categories'
 import { useTransactionStore } from '@/stores/transactions'
 
-import { formatDate } from '@/utils/formatDate'
+import { formatDate, formatDateMonthYear } from '@/utils/formatDate'
 import { computed } from 'vue'
 
 export function useTransactions() {
@@ -22,12 +22,13 @@ export function useTransactions() {
       return {
         ...transaction,
         formattedDayMonth: formatDate(transaction.date, 'dia/mes'),
+        monthYear: formatDateMonthYear(transaction.date),
         color: transaction.type === 'expense' ? 'text-red' : 'text-green',
         signal: transaction.type === 'expense' ? '-' : '+',
         icon: transaction.icon ?? 'mdi-circle-outline',
         title: transaction.description ?? 'Sem Titulo',
         categoryName: category?.name,
-        categoryGroup: category?.group,
+        groupId: category?.groupId,
       }
     })
   })
@@ -37,6 +38,7 @@ export function useTransactions() {
     return transactions.value.filter((transaction) => transaction.isRecuring)
   })
 
+  // Largest expenses
   const largestExpenses = computed(() => {
     const largestExpenses = transactions.value.filter(
       (transaction) => transaction.type === 'expense' && !transaction.isRecuring,

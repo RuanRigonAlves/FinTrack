@@ -21,3 +21,9 @@ export const formatDate = (date, option = 'dia/mes') => {
 
   if (option === 'mes/ano') return `${meses[Number(month) - 1]} ${year}`
 }
+
+export const formatDateMonthYear = (date) => {
+  const [day, rest] = date.split('-')
+
+  return rest
+}

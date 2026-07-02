@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-grid">
     <BudgetCard />
-    <BudgetCard />
+    <TransactionsCard />
 
     <div class="dashboard-column">
       <GoalsCard></GoalsCard>
