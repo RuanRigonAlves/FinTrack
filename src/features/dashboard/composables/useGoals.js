@@ -19,7 +19,10 @@ export function useGoals() {
     })
   })
 
+  const sortedGoals = [...goals.value].sort((a, b) => b.percentage - a.percentage)
+
   return {
     goals,
+    sortedGoals,
   }
 }

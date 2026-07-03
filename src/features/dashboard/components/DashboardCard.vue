@@ -6,6 +6,8 @@
 
     <v-divider> </v-divider>
 
+    <slot name="budget-bar"></slot>
+
     <section class="card-content" :class="contentClass">
       <slot name="content"> </slot>
     </section>

@@ -1,5 +1,6 @@
 <template>
   <DashboardCard>
+    <!-- Budget Header -->
     <template #header>
       <div class="d-flex align-center ga-2 font-weight-medium py-6">
         <div class="">
@@ -20,12 +21,11 @@
       </div>
     </template>
 
-    <template #content>
-      <!-- BudgetBar bar -->
+    <!-- BudgetBar  -->
+    <template #budget-bar>
       <v-sheet class="px-3 py-6">
-        <div class="allocation-bar">
+        <div class="budget-bar">
           <div class="total" :style="{ width: `${selectedBudget.remainingPercentage}%` }"></div>
-
           <div
             v-for="budget in selectedBudget.categoryTotals"
             :key="budget"
@@ -37,8 +37,12 @@
           ></div>
         </div>
       </v-sheet>
+      <v-divider> </v-divider>
+    </template>
 
-      <v-sheet class="category-totals px-3">
+    <!-- Budget List -->
+    <template #content>
+      <v-sheet class="px-3">
         <v-list>
           <v-list-item v-for="categoryGroup in selectedBudget.categoryTotals">
             <div class="d-flex justify-space-between align-center">
@@ -48,7 +52,14 @@
                 }}</v-icon>
 
                 <div>
-                  {{ categoryGroup.group.name }}
+                  <div class="d-flex align-center ga-2">
+                    <div
+                      class="group-color"
+                      :style="{ backgroundColor: categoryGroup.group.color }"
+                    ></div>
+                    {{ categoryGroup.group.name }}
+                  </div>
+
                   <div class="d-flex ga-1">
                     <div class="text-red">R$ -{{ categoryGroup.total }}</div>
                     <div class="text-medium-emphasis">spent</div>
@@ -79,7 +90,7 @@ console.log(selectedBudget)
 </script>
 
 <style scoped>
-.allocation-bar {
+.budget-bar {
   display: flex;
   height: 35px;
   overflow: hidden;
@@ -98,5 +109,11 @@ console.log(selectedBudget)
   height: 100%;
   background-color: green;
   border-radius: 4px;
+}
+
+.group-color {
+  width: 5px;
+  height: 1rem;
+  border-radius: 1rem;
 }
 </style>

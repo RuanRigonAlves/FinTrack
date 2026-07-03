@@ -53,5 +53,6 @@ import DashboardList from '../components/DashboardList.vue'
 import { useGoals } from '../composables/useGoals.js'
 
 // Goals Composable
-const { goals } = useGoals()
+const { sortedGoals } = useGoals()
+const goals = sortedGoals
 </script>

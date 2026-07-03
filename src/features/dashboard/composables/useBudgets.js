@@ -10,7 +10,7 @@ export function useBudget() {
   const budgetsStore = useBudgetStore()
 
   // Composables
-  const { transactions } = useTransactions()
+  const { transactions, getTransactionsByGroup } = useTransactions()
   const { getCategoryGroup } = useCategoryGroups()
 
   // Populate Budget
@@ -32,10 +32,12 @@ export function useBudget() {
 
       if (existingGroup) {
         existingGroup.total += transaction.amount
+        existingGroup.transactions.push(transaction)
       } else {
         categoryTotals.push({
           group,
           total: transaction.amount,
+          transactions: [transaction],
         })
       }
     }
@@ -47,6 +49,10 @@ export function useBudget() {
     categoryTotals.forEach((item) => {
       remainingPercentage -= item.percentage
     })
+
+    remainingPercentage = Number(remainingPercentage.toFixed(1))
+
+    categoryTotals.sort((categoryA, categoryB) => categoryB.percentage - categoryA.percentage)
 
     // Budget
     return {
