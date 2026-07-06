@@ -87,4 +87,15 @@ export const mockTransactions = [
     date: '23-06/2026',
     isRecuring: false,
   },
+  {
+    id: 7,
+    accountId: 1,
+    type: 'expense',
+    amount: 666,
+    categoryId: 6,
+    description: 'Mercado',
+    icon: 'mdi-cart',
+    date: '23-06/2027',
+    isRecuring: false,
+  },
 ]

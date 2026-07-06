@@ -61,7 +61,7 @@
                   </div>
 
                   <div class="d-flex ga-1">
-                    <div class="text-red">R$ -{{ categoryGroup.total }}</div>
+                    <div class="text-red">-R${{ categoryGroup.total }}</div>
                     <div class="text-medium-emphasis">spent</div>
                   </div>
                 </div>
@@ -80,13 +80,10 @@
 
 <script setup>
 // Imports
-import { computed, ref } from 'vue'
 import DashboardCard from '../components/DashboardCard.vue'
 import { useBudget } from '../composables/useBudgets.js'
 
 const { budgets, selectedBudget, selectedBudgetId } = useBudget()
-
-console.log(selectedBudget)
 </script>
 
 <style scoped>

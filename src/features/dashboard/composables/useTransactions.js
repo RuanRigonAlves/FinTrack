@@ -50,9 +50,41 @@ export function useTransactions() {
     return largestExpenses
   })
 
+  const getExpensesByDate = (date) => {
+    const monthYear = formatDateMonthYear(date)
+
+    const monthTransactions = transactions.value.filter((transaction) => {
+      return transaction.monthYear === monthYear && transaction.type === 'expense'
+    })
+
+    monthTransactions.sort((a, b) => a.date.split('-')[0] - b.date.split('-')[0])
+
+    return monthTransactions
+  }
+
+  // Meses que houveram transacoes
+  const monthOfTransactions = computed(() => {
+    const months = new Map()
+
+    transactions.value
+      .filter((transaction) => transaction.type === 'expense')
+      .forEach((transaction) => {
+        if (!months.has(transaction.monthYear)) {
+          months.set(transaction.monthYear, {
+            value: transaction.date,
+            title: transaction.monthYear,
+          })
+        }
+      })
+
+    return [...months.values()]
+  })
+
   return {
     transactions,
     recurringTransactions,
     largestExpenses,
+    getExpensesByDate,
+    monthOfTransactions,
   }
 }

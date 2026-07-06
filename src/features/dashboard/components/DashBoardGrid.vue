@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-grid">
     <BudgetCard />
-    <TransactionsCard />
+    <MonthChartCard></MonthChartCard>
 
     <div class="dashboard-column">
       <GoalsCard></GoalsCard>
@@ -22,6 +22,7 @@ import TransactionsCard from '../cards/TransactionsCard.vue'
 import RecurringCard from '../cards/RecurringCard.vue'
 import GoalsCard from '../cards/GoalsCard.vue'
 import LargestExpenses from '../cards/LargestExpenses.vue'
+import MonthChartCard from '../cards/MonthChartCard.vue'
 </script>
 
 <style scoped>

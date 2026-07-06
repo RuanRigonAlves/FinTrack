@@ -10,17 +10,13 @@ export function useBudget() {
   const budgetsStore = useBudgetStore()
 
   // Composables
-  const { transactions, getTransactionsByGroup } = useTransactions()
+  const { transactions, getTransactionsByGroup, getExpensesByDate } = useTransactions()
   const { getCategoryGroup } = useCategoryGroups()
 
   // Populate Budget
   function populateBudget(budget) {
     const monthYear = formatDateMonthYear(budget.date)
-
-    // Budget Month Transaction
-    const monthExpenses = transactions.value.filter((transaction) => {
-      return transaction.monthYear === monthYear && transaction.type === 'expense'
-    })
+    const monthExpenses = getExpensesByDate(budget.date)
 
     const categoryTotals = []
     let remainingPercentage = 100
@@ -51,6 +47,7 @@ export function useBudget() {
     })
 
     remainingPercentage = Number(remainingPercentage.toFixed(1))
+    if (remainingPercentage <= 0) remainingPercentage = 0
 
     categoryTotals.sort((categoryA, categoryB) => categoryB.percentage - categoryA.percentage)
 
