@@ -50,8 +50,8 @@ export function useTransactions() {
     return largestExpenses
   })
 
-  const getExpensesByDate = (date) => {
-    const monthYear = formatDateMonthYear(date)
+  const getMonthlyExpenses = (monthReference) => {
+    const monthYear = formatDateMonthYear(monthReference)
 
     const monthTransactions = transactions.value.filter((transaction) => {
       return transaction.monthYear === monthYear && transaction.type === 'expense'
@@ -71,7 +71,7 @@ export function useTransactions() {
       .forEach((transaction) => {
         if (!months.has(transaction.monthYear)) {
           months.set(transaction.monthYear, {
-            value: transaction.date,
+            date: transaction.date,
             title: transaction.monthYear,
           })
         }
@@ -84,7 +84,7 @@ export function useTransactions() {
     transactions,
     recurringTransactions,
     largestExpenses,
-    getExpensesByDate,
+    getMonthlyExpenses,
     monthOfTransactions,
   }
 }
