@@ -1,6 +1,6 @@
 // Imports
 import { useBudgetStore } from '@/stores/budgets'
-import { useTransactions } from './useTransactions'
+import { useDashboardTransactions } from './useDashboardTransactions'
 import { computed, ref } from 'vue'
 import { formatDateMonthYear } from '@/utils/formatDate'
 import { useCategoryGroups } from './useCategoryGroups'
@@ -10,7 +10,7 @@ export function useBudget() {
   const budgetsStore = useBudgetStore()
 
   // Composables
-  const { transactions, getTransactionsByGroup, getMonthlyExpenses } = useTransactions()
+  const { transactions, getTransactionsByGroup, getMonthlyExpenses } = useDashboardTransactions()
   const { getCategoryGroup } = useCategoryGroups()
 
   // Populate Budget

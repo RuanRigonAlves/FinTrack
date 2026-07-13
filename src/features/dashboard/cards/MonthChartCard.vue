@@ -33,7 +33,7 @@
 // Imports
 import DashboardCard from '../components/DashboardCard.vue'
 import { useSpendingChart } from '../composables/useSpendingChart.js'
-import { useTransactions } from '../composables/useTransactions.js'
+import { useDashboardTransactions } from '../composables/useDashboardTransactions.js'
 import { computed, ref } from 'vue'
 import { formatDateMonthYear } from '@/utils/formatDate.js'
 import { Line } from 'vue-chartjs'
@@ -61,5 +61,5 @@ ChartJS.register(
 )
 
 const { selectedDate, chartData, chartOptions, monthTotal } = useSpendingChart()
-const { monthOfTransactions } = useTransactions()
+const { monthOfTransactions } = useDashboardTransactions()
 </script>

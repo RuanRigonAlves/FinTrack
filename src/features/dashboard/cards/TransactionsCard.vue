@@ -33,8 +33,8 @@
 <script setup>
 // Imports
 import DashboardList from '../components/DashboardList.vue'
-import { useTransactions } from '../composables/useTransactions'
+import { useDashboardTransactions } from '../composables/useDashboardTransactions.js'
 
 // Transactions Composable
-const { transactions } = useTransactions()
+const { transactions } = useDashboardTransactions()
 </script>

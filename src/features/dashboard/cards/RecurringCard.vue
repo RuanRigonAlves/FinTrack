@@ -32,9 +32,9 @@
 
 <script setup>
 // Imports
-import { useTransactions } from '../composables/useTransactions.js'
+import { useDashboardTransactions } from '../composables/useDashboardTransactions.js'
 import DashboardList from '../components/DashboardList.vue'
 
 // Recurring Transactions
-const { recurringTransactions } = useTransactions()
+const { recurringTransactions } = useDashboardTransactions()
 </script>

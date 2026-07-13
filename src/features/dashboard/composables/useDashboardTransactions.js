@@ -5,7 +5,7 @@ import { useTransactionStore } from '@/stores/transactions'
 import { formatDate, formatDateMonthYear } from '@/utils/formatDate'
 import { computed } from 'vue'
 
-export function useTransactions() {
+export function useDashboardTransactions() {
   // Store
   const transactionStore = useTransactionStore()
   const categoryStore = useCategoriesStore()

@@ -24,7 +24,7 @@
       variant="text"
       class="mb-1 mx-3 rounded-pill text-title-small text-medium-emphasis"
     >
-      <v-icon class="mr-1" size="21">mdi-view-dashboard</v-icon>
+      <v-icon class="mr-1" size="21">{{ page.icon }}</v-icon>
       {{ page.name }}
     </v-list-item>
   </v-navigation-drawer>
@@ -36,14 +36,12 @@ const pages = [
   {
     name: 'Dashboard',
     url: '/dashboard',
+    icon: 'mdi-view-dashboard',
   },
   {
-    name: 'test',
-    url: '/',
-  },
-  {
-    name: 'tests asd as',
-    url: '/',
+    name: 'Create Transaction',
+    url: '/createTransaction',
+    icon: 'mdi-plus-thick',
   },
 ]
 </script>

@@ -1,10 +1,10 @@
 // Imports
 import { computed, ref } from 'vue'
-import { useTransactions } from './useTransactions'
+import { useDashboardTransactions } from './useDashboardTransactions'
 import { getPreviousMonthDate } from '@/utils/getPreviousMonthDate'
 
 export function useSpendingChart() {
-  const { monthOfTransactions, getMonthlyExpenses } = useTransactions()
+  const { monthOfTransactions, getMonthlyExpenses } = useDashboardTransactions()
 
   const selectedDate = ref(monthOfTransactions.value[0]?.date ?? null)
 
