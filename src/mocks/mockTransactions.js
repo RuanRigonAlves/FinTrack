@@ -8,7 +8,7 @@ export const mockTransactions = [
     description: 'Mercado',
     icon: 'mdi-cart',
     date: '24-06/2026',
-    isRecuring: false,
+    isRecurring: false,
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const mockTransactions = [
     description: 'Roupas',
     icon: 'mdi-tshirt-crew',
     date: '16-06/2026',
-    isRecuring: false,
+    isRecurring: false,
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const mockTransactions = [
     description: 'Salario',
     icon: 'mdi-cash',
     date: '05-06/2026',
-    isRecuring: true,
+    isRecurring: true,
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ export const mockTransactions = [
     description: 'Deposito',
     icon: 'mdi-bank-transfer-in',
     date: '10-06/2026',
-    isRecuring: false,
+    isRecurring: false,
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ export const mockTransactions = [
     description: 'Spotify',
     icon: 'mdi-spotify',
     date: '10-06/2026',
-    isRecuring: true,
+    isRecurring: true,
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ export const mockTransactions = [
     description: 'Mercado',
     icon: 'mdi-cart',
     date: '16-07/2026',
-    isRecuring: false,
+    isRecurring: false,
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ export const mockTransactions = [
     description: 'Mercado',
     icon: 'mdi-cart',
     date: '25-06/2026',
-    isRecuring: false,
+    isRecurring: false,
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ export const mockTransactions = [
     description: 'Mercado',
     icon: 'mdi-cart',
     date: '23-06/2026',
-    isRecuring: false,
+    isRecurring: false,
   },
   {
     id: 7,
@@ -96,7 +96,7 @@ export const mockTransactions = [
     description: 'Mercado',
     icon: 'mdi-cart',
     date: '23-06/2027',
-    isRecuring: false,
+    isRecurring: false,
   },
   {
     id: 8,
@@ -107,6 +107,6 @@ export const mockTransactions = [
     description: 'Mercado',
     icon: 'mdi-cart',
     date: '26-07/2026',
-    isRecuring: false,
+    isRecurring: false,
   },
 ]

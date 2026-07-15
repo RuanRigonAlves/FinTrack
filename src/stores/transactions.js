@@ -4,10 +4,24 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 // Store
-export const useTransactionStore = defineStore('transactions', () => {
-  const transactions = ref(mockTransactions)
+export const useTransactionStore = defineStore(
+  'transactions',
+  () => {
+    const transactions = ref(mockTransactions)
 
-  return {
-    transactions,
-  }
-})
+    const addTransaction = (transaction) => {
+      transactions.value.push({
+        id: crypto.randomUUID(),
+        ...transaction,
+      })
+    }
+
+    return {
+      transactions,
+      addTransaction,
+    }
+  },
+  {
+    persist: true,
+  },
+)
