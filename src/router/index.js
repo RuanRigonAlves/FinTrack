@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
 import DashboardPage from '@/features/dashboard/pages/DashboardPage.vue'
 import CreateTransactionPage from '@/features/transactions/pages/CreateTransactionPage.vue'
+import TransactionsPage from '@/features/transactions/pages/TransactionsPage.vue'
 
 // Routes
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
     path: '/createTransaction',
     name: 'createTransaction',
     component: CreateTransactionPage,
+  },
+  {
+    path: '/transactions',
+    name: 'transactions',
+    component: TransactionsPage,
   },
 ]
 

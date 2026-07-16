@@ -43,6 +43,11 @@ const pages = [
     url: '/createTransaction',
     icon: 'mdi-plus-thick',
   },
+  {
+    name: 'Transactions',
+    url: '/transactions',
+    icon: 'mdi-list-box',
+  },
 ]
 </script>
 
