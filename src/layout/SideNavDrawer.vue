@@ -40,7 +40,7 @@ const pages = [
   },
   {
     name: 'Create Transaction',
-    url: '/createTransaction',
+    url: '/transactions/new',
     icon: 'mdi-plus-thick',
   },
   {

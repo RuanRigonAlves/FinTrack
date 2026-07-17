@@ -12,7 +12,7 @@
           v-for="transaction in transactions"
           :key="transaction.id"
           class="mb-2 rounded-lg border"
-          to="/"
+          :to="`/transactions/${transaction.id}`"
           style="width: 350px"
         >
           <div class="d-flex justify-space-between align-center">
@@ -22,9 +22,7 @@
               </v-avatar>
 
               <div>
-                <div class="font-weight-medium">
-                  {{ transaction.title }}
-                </div>
+                <div class="font-weight-medium">{{ transaction.title }}</div>
 
                 <div class="text-caption text-medium-emphasis">
                   {{ transaction.description }}

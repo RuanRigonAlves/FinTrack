@@ -4,6 +4,7 @@ import HomePage from '@/pages/HomePage.vue'
 import DashboardPage from '@/features/dashboard/pages/DashboardPage.vue'
 import CreateTransactionPage from '@/features/transactions/pages/CreateTransactionPage.vue'
 import TransactionsPage from '@/features/transactions/pages/TransactionsPage.vue'
+import ViewTransactionPage from '@/features/transactions/pages/ViewTransactionPage.vue'
 
 // Routes
 const routes = [
@@ -18,7 +19,7 @@ const routes = [
     component: DashboardPage,
   },
   {
-    path: '/createTransaction',
+    path: '/transactions/new',
     name: 'createTransaction',
     component: CreateTransactionPage,
   },
@@ -26,6 +27,11 @@ const routes = [
     path: '/transactions',
     name: 'transactions',
     component: TransactionsPage,
+  },
+  {
+    path: '/transactions/:id',
+    name: 'viewTransaction',
+    component: ViewTransactionPage,
   },
 ]
 

@@ -88,7 +88,7 @@ export const mockTransactions = [
     isRecurring: false,
   },
   {
-    id: 7,
+    id: 9,
     accountId: 1,
     type: 'expense',
     amount: 666,
@@ -99,7 +99,7 @@ export const mockTransactions = [
     isRecurring: false,
   },
   {
-    id: 8,
+    id: 10,
     accountId: 1,
     type: 'expense',
     amount: 400,
