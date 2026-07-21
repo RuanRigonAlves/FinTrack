@@ -12,6 +12,22 @@ services:
 
     volumes:
       - ./backend:/var/www
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+
+    container_name: fintrack-frontend
+
+    working_dir: /src
+
+    ports:
+      - '5173:5173'
+
+    volumes:
+      - ./frontend:/src
+      - /src/node_modules
   mysql:
     image: mysql:8.4
 
@@ -45,6 +61,7 @@ services:
 
     depends_on:
       - backend
+      - frontend
 
 volumes:
   mysql_data:
