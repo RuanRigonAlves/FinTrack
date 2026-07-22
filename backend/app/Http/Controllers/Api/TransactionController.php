@@ -23,6 +23,7 @@ class TransactionController extends Controller
     {
         $transaction = Transaction::create(
             $request->validate([
+                'user_id' => 'required|exists:users,id',
                 'type' => 'required|in:income,expense',
                 'amount' => 'required|numeric',
                 'description' => 'required|string|max:255',

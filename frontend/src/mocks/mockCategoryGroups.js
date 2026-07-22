@@ -1,7 +1,7 @@
 export const mockCategoryGroups = [
   {
-    id: 'essential',
-    name: 'Essential',
+    id: 'essentials',
+    name: 'Essentials',
     icon: 'mdi-home',
     color: '#4CAF50',
   },
@@ -22,5 +22,17 @@ export const mockCategoryGroups = [
     name: 'Vacation',
     icon: 'mdi-island',
     color: '#123fbb',
+  },
+  {
+    id: 'transportation',
+    name: 'Transportation',
+    icon: 'mdi-car',
+    color: '#88a2a8',
+  },
+  {
+    id: 'health',
+    name: 'Health',
+    icon: 'mdi-plus',
+    color: '#be1903',
   },
 ]

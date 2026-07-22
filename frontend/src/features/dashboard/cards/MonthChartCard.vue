@@ -5,7 +5,9 @@
         <div class="font-weight-regular text-medium-emphasis py-2">
           Spending in {{ formatDateMonthYear(selectedDate) }}
 
-          <div class="text-high-emphasis font-weight-medium">-R${{ monthTotal }}</div>
+          <div class="text-high-emphasis font-weight-medium text-red">
+            - R${{ monthTotal.toFixed(2) }}
+          </div>
         </div>
 
         <div>

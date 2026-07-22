@@ -30,6 +30,8 @@ export function useDashboardTransactions() {
 
       groupName: transaction.category?.group?.name,
 
+      groupId: transaction.category?.group?.name.toLowerCase(),
+
       groupIcon: transaction.category?.group?.icon,
 
       groupColor: transaction.category?.group?.color,
@@ -53,6 +55,7 @@ export function useDashboardTransactions() {
     return largestExpenses
   })
 
+  // Despesas do mes para o budget
   const getMonthlyExpenses = (monthReference) => {
     const monthYear = formatDateMonthYear(monthReference)
 
@@ -60,7 +63,7 @@ export function useDashboardTransactions() {
       return transaction.monthYear === monthYear && transaction.type === 'expense'
     })
 
-    monthTransactions.sort((a, b) => a.date.split('-')[0] - b.date.split('-')[0])
+    monthTransactions.sort((a, b) => new Date(a.date) - new Date(b.date))
 
     return monthTransactions
   }
@@ -80,7 +83,7 @@ export function useDashboardTransactions() {
         }
       })
 
-    return [...months.values()]
+    return [...months.values()].sort((a, b) => new Date(b.date) - new Date(a.date))
   })
 
   return {

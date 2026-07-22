@@ -1,5 +1,5 @@
 <template>
-  <DashboardList :items="transactionStore.transactions">
+  <DashboardList :items="transactions">
     <template #header>
       <v-icon>mdi-wallet</v-icon>
       Transactions
@@ -10,7 +10,7 @@
         class="d-flex align-center text-body-small text-cente px-3 rounded-pill font-weight-medium text-medium-emphasis"
         style="background-color: rgb(var(--v-theme-content))"
       >
-        {{ item.groupId }}
+        {{ item.groupName }}
       </div>
 
       |
@@ -32,13 +32,8 @@
 
 <script setup>
 // Imports
-import { onMounted } from 'vue'
 import DashboardList from '../components/DashboardList.vue'
-import { useTransactionStore } from '@/stores/transactions.js'
+import { useDashboardTransactions } from '../composables/useDashboardTransactions.js'
 
-const transactionStore = useTransactionStore()
-
-onMounted(async () => {
-  await transactionStore.fetchTransactions()
-})
+const { transactions } = useDashboardTransactions()
 </script>

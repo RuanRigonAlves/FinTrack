@@ -10,7 +10,7 @@ export function useBudget() {
   const budgetsStore = useBudgetStore()
 
   // Composables
-  const { transactions, getTransactionsByGroup, getMonthlyExpenses } = useDashboardTransactions()
+  const { getMonthlyExpenses } = useDashboardTransactions()
   const { getCategoryGroup } = useCategoryGroups()
 
   // Populate Budget

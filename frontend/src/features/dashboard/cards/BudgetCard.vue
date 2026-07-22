@@ -61,7 +61,7 @@
                   </div>
 
                   <div class="d-flex ga-1">
-                    <div class="text-red">-R${{ categoryGroup.total }}</div>
+                    <div class="text-red">-R${{ categoryGroup.total.toFixed(2) }}</div>
                     <div class="text-medium-emphasis">spent</div>
                   </div>
                 </div>
