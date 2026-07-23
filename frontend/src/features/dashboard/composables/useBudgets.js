@@ -24,6 +24,11 @@ export function useBudget() {
     for (const transaction of monthExpenses) {
       const group = getCategoryGroup(transaction.groupId)
 
+      if (!group) {
+        console.log('Transação sem grupo:', transaction)
+        continue
+      }
+
       const existingGroup = categoryTotals.find((item) => item.group.id === group.id)
 
       if (existingGroup) {

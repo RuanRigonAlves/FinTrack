@@ -43,7 +43,7 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        return $transaction;
+        return $transaction->load('category.group');
     }
 
     /**

@@ -7,7 +7,11 @@
 
       <v-divider></v-divider>
 
-      <v-list class="bg-transparent d-flex justify-center flex-wrap ga-2">
+      <div v-if="transactionStore.loading" class="w-100 h-100 d-flex justify-center align-center">
+        <v-progress-circular indeterminate :size="128"> </v-progress-circular>
+      </div>
+
+      <v-list class="bg-transparent d-flex justify-center flex-wrap ga-2" v-else>
         <v-list-item
           v-for="transaction in transactionStore.transactions"
           :key="transaction.id"
@@ -18,7 +22,7 @@
           <div class="d-flex justify-space-between align-center">
             <div class="d-flex align-center ga-4">
               <v-avatar size="44" color="background">
-                <v-icon>{{ transaction.icon }}</v-icon>
+                <v-icon>{{ transaction.icon ? transaction.icon : 'mdi-cash' }}</v-icon>
               </v-avatar>
 
               <div>
@@ -50,15 +54,11 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { useTransactionList } from '../composables/useTransactionList'
 import { useTransactionStore } from '@/stores/transactions'
 
 const transactionStore = useTransactionStore()
-// const { transactions } = useTransactionList()
 
 onMounted(() => {
   transactionStore.fetchTransactions()
 })
-
-console.log(transactionStore.loading)
 </script>

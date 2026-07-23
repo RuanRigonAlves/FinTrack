@@ -2,10 +2,12 @@ import { useCategoriesStore } from '@/stores/categories'
 import { useTransactionStore } from '@/stores/transactions'
 import { reactive, computed, watch, ref } from 'vue'
 import * as rules from '@/features/transactions/validation/transactionRules.js'
+import { useCategories } from '@/features/categories/composables/useCategories'
 
 export function useTransactionForm(transaction = null) {
   const transactionStore = useTransactionStore()
-  const categoriesStore = useCategoriesStore().categories
+  const categoriesStore = useCategoriesStore()
+  const { categories } = useCategories()
 
   const form = ref(null)
 
@@ -45,10 +47,10 @@ export function useTransactionForm(transaction = null) {
 
       if (!valid) return
 
-      formData.user_id = 1
+      formData.userId = 1
 
       console.log(formData)
-      transactionStore.addTransaction({
+      transactionStore.createTransaction({
         ...formData,
         amount: Number(formData.amount),
       })
@@ -70,7 +72,7 @@ export function useTransactionForm(transaction = null) {
   }
 
   const filteredCategories = computed(() => {
-    return categoriesStore.filter((category) => {
+    return categoriesStore.categories.filter((category) => {
       return category.type === formData.type
     })
   })

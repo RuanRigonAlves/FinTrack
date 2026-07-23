@@ -40,7 +40,7 @@ export function useDashboardTransactions() {
 
   // Recurring Transactions
   const recurringTransactions = computed(() => {
-    return transactions.value.filter((transaction) => transaction.is_recurring)
+    return transactions.value.filter((transaction) => transaction.isRecurring)
   })
 
   // Largest expenses

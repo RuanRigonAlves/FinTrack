@@ -7,12 +7,19 @@
       <v-divider></v-divider>
 
       <div class="d-flex justify-center mt-4">
-        <transaction-form></transaction-form>
+        <div v-if="categoriesStore.loading" class="w-100 h-100 d-flex justify-center align-center">
+          <v-progress-circular indeterminate :size="128"> </v-progress-circular>
+        </div>
+
+        <transaction-form v-else></transaction-form>
       </div>
     </div>
   </v-sheet>
 </template>
 
 <script setup>
+import { useCategoriesStore } from '@/stores/categories.js'
 import TransactionForm from '../components/TransactionForm.vue'
+
+const categoriesStore = useCategoriesStore()
 </script>
