@@ -44,7 +44,7 @@
 
     <div>
       <div>
-        <v-date-picker weekday-format="short" width="500" v-model="formData.date"></v-date-picker>
+        <v-date-picker width="500" v-model="formData.date"></v-date-picker>
 
         <div v-if="dateError" class="text-error d-flex justify-end px-4">
           {{ dateError }}

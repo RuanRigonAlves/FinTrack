@@ -29,7 +29,7 @@ export const useTransactionStore = defineStore(
     async function addTransaction(transaction) {
       const newTransaction = await transactionService.create(transaction)
 
-      transaction.value.push(newTransaction)
+      return newTransaction
     }
 
     async function updateTransaction(id, transaction) {

@@ -13,7 +13,7 @@ class CategoryGroupController extends Controller
      */
     public function index()
     {
-        return CategoryGroup::all();
+        return CategoryGroup::with('categories')->get();
     }
 
     /**
@@ -21,30 +21,48 @@ class CategoryGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $group = CategoryGroup::create(
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'icon' => 'nullable|string',
+                'color' => 'nullable|string',
+            ])
+        );
+
+        return response()->json($group, 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(CategoryGroup $categoryGroup)
     {
-        //
+        return $categoryGroup->load('categories');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, CategoryGroup $categoryGroup)
     {
-        //
+        $categoryGroup->update(
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'icon' => 'nullable|string',
+                'color' => 'nullable|string',
+            ])
+        );
+
+        return $categoryGroup;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CategoryGroup $categoryGroup)
     {
-        //
+        $categoryGroup->delete();
+
+        return response()->noContent();
     }
 }

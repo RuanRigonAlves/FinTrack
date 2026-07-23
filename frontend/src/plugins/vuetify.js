@@ -8,7 +8,7 @@ export default createVuetify({
   directives,
 
   theme: {
-    defaultTheme: 'light',
+    defaultTheme: 'system',
     themes: {
       light: {
         dark: false,

@@ -43,11 +43,9 @@ export function useTransactionForm(transaction = null) {
     } else {
       const { valid } = await form.value.validate()
 
-      console.log(form.value)
-
       if (!valid) return
 
-      formData.date = formatDate(formData.date)
+      formData.user_id = 1
 
       console.log(formData)
       transactionStore.addTransaction({

@@ -7,13 +7,6 @@ export const mockCategories = [
     icon: 'mdi-cash',
   },
   {
-    id: 2,
-    name: 'Roupas',
-    type: 'expense',
-    groupId: 'lifestyle',
-    icon: 'mdi-tshirt-crew',
-  },
-  {
     id: 3,
     name: 'Mercado',
     type: 'expense',
@@ -22,10 +15,10 @@ export const mockCategories = [
   },
   {
     id: 4,
-    name: 'Cinema',
+    name: 'Lazer',
     type: 'expense',
     groupId: 'entertainment',
-    icon: 'mdi-movie',
+    icon: 'mdi-gamepad',
   },
   {
     id: 5,
@@ -33,12 +26,5 @@ export const mockCategories = [
     type: 'expense',
     groupId: 'essential',
     icon: 'mdi-bus',
-  },
-  {
-    id: 6,
-    name: 'Vacation',
-    type: 'expense',
-    groupId: 'vacation',
-    icon: 'mdi-island',
   },
 ]
