@@ -1,5 +1,10 @@
 <template>
-  <v-navigation-drawer permanent class="bg-background">
+  <v-navigation-drawer
+    :model-value="mobile ? layoutStore.drawer : true"
+    :permanent="!mobile"
+    :temporary="mobile"
+    class="bg-background"
+  >
     <!-- Title -->
     <div class="pt-2">
       <v-list-item
@@ -31,6 +36,11 @@
 </template>
 
 <script setup>
+import { useDisplay } from 'vuetify'
+import { useLayoutStore } from '@/stores/layout'
+
+const layoutStore = useLayoutStore()
+const { mobile } = useDisplay()
 // Pages
 const pages = [
   {

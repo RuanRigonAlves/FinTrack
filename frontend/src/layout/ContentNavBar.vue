@@ -1,5 +1,7 @@
 <template>
   <div class="d-flex justify-space-between">
+    <v-btn v-if="mobile" icon="mdi-menu" variant="text" @click="layoutStore.toggleDrawer"> </v-btn>
+
     <v-text-field
       elevation="1"
       density="compact"
@@ -17,5 +19,13 @@
     >
   </div>
 </template>
+
+<script setup>
+import { useLayoutStore } from '@/stores/layout'
+import { useDisplay } from 'vuetify'
+
+const layoutStore = useLayoutStore()
+const { mobile } = useDisplay()
+</script>
 
 <style scoped></style>
