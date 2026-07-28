@@ -1,12 +1,27 @@
 <template>
+  <v-navigation-drawer v-if="mobile" permanent rail>
+    <div class="d-flex flex-wrap ga-2 justify-center">
+      <v-btn icon="mdi-home" variant="text" to="/" :active="false"></v-btn>
+
+      <v-btn v-if="mobile" icon="mdi-menu" variant="text" @click="layoutStore.toggleDrawer">
+      </v-btn>
+
+      <v-btn icon="mdi-login" variant="text"> </v-btn>
+
+      <v-btn icon="mdi-magnify" variant="text"> </v-btn>
+    </div>
+  </v-navigation-drawer>
+
   <v-navigation-drawer
+    v-model="layoutStore.drawer"
     :model-value="mobile ? layoutStore.drawer : true"
     :permanent="!mobile"
     :temporary="mobile"
     class="bg-background"
+    :class="mobile ? 'pt-2' : ''"
   >
     <!-- Title -->
-    <div class="pt-2">
+    <div class="pt-2" v-if="!mobile">
       <v-list-item
         to="/"
         height="50px"
