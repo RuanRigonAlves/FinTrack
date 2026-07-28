@@ -19,10 +19,6 @@
 </template>
 
 <script setup>
-import { useLayoutStore } from '@/stores/layout'
 import { useDisplay } from 'vuetify'
-const layoutStore = useLayoutStore()
 const { mobile } = useDisplay()
 </script>
-
-<style scoped></style>

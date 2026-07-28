@@ -1,16 +1,12 @@
 <template>
   <v-app>
-    <v-layout>
-      <SideNavDrawer />
+    <SideNavDrawer />
 
-      <v-main>
-        <div class="fill-height d-flex flex-column pa-2">
-          <ContentNavBar class="mb-2"></ContentNavBar>
+    <v-main class="overflow-auto">
+      <ContentNavBar class="mb-2 px-4 py-2"></ContentNavBar>
 
-          <RouterView class="flex-grow-1" style="min-height: 0" />
-        </div>
-      </v-main>
-    </v-layout>
+      <RouterView />
+    </v-main>
   </v-app>
 </template>
 

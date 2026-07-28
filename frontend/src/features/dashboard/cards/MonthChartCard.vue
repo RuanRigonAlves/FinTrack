@@ -24,7 +24,7 @@
     </template>
 
     <template #content>
-      <div style="height: 300px">
+      <div style="height: 200px">
         <Line :data="chartData" :options="chartOptions" />
       </div>
     </template>

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="rounded-lg" elevation="1">
+  <v-sheet class="rounded-lg ma-2" elevation="1">
     <div class="h-100 pa-2">
       <div class="mb-4 d-flex justify-center">
         <h2>List Of All Transactions</h2>

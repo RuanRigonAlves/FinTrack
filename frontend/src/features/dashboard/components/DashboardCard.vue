@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="card rounded-lg d-flex flex-column h-100 overflow-hidden" elevation="1">
+  <v-sheet class="rounded-lg d-flex flex-column h-100 overflow-hidden" elevation="1">
     <header class="d-flex justify-space-between align-center px-4" :class="headerClass">
       <slot name="header"> </slot>
     </header>
@@ -37,10 +37,8 @@ defineProps({
 }
 
 .card-content {
-  flex: 1 1 0;
-
   overflow: auto;
 
-  min-height: 0;
+  height: 230px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-if="mobile" permanent rail>
+  <v-navigation-drawer v-if="mobile" permanent rail fixed>
     <div class="d-flex flex-wrap ga-2 justify-center">
       <v-btn icon="mdi-home" variant="text" to="/" :active="false"></v-btn>
 
@@ -14,11 +14,11 @@
 
   <v-navigation-drawer
     v-model="layoutStore.drawer"
-    :model-value="mobile ? layoutStore.drawer : true"
     :permanent="!mobile"
     :temporary="mobile"
     class="bg-background"
     :class="mobile ? 'pt-2' : ''"
+    fixed
   >
     <!-- Title -->
     <div class="pt-2" v-if="!mobile">

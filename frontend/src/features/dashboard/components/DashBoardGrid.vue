@@ -1,18 +1,40 @@
 <template>
-  <div class="dashboard-grid">
-    <BudgetCard />
-    <MonthChartCard></MonthChartCard>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12" lg="6">
+        <BudgetCard></BudgetCard>
+      </v-col>
 
-    <div class="dashboard-column">
-      <GoalsCard></GoalsCard>
-      <LargestExpenses></LargestExpenses>
-    </div>
+      <v-col cols="12" lg="6">
+        <MonthChartCard></MonthChartCard>
+      </v-col>
 
-    <div class="dashboard-column">
-      <TransactionsCard></TransactionsCard>
-      <RecurringCard></RecurringCard>
-    </div>
-  </div>
+      <!-- Left -->
+      <v-col cols="12" lg="6">
+        <v-row density="comfortable">
+          <v-col cols="12">
+            <GoalsCard></GoalsCard>
+          </v-col>
+
+          <v-col cols="12">
+            <LargestExpenses></LargestExpenses>
+          </v-col>
+        </v-row>
+      </v-col>
+
+      <v-col cols="12" lg="6">
+        <v-row density="comfortable">
+          <v-col cols="12">
+            <TransactionsCard />
+          </v-col>
+
+          <v-col cols="12">
+            <RecurringCard />
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>
@@ -24,35 +46,3 @@ import GoalsCard from '../cards/GoalsCard.vue'
 import LargestExpenses from '../cards/LargestExpenses.vue'
 import MonthChartCard from '../cards/MonthChartCard.vue'
 </script>
-
-<style scoped>
-.dashboard-grid {
-  display: grid;
-  height: 100%;
-
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-
-  gap: 6px;
-}
-
-.dashboard-grid > * {
-  min-height: 0;
-  min-width: 0;
-}
-
-.dashboard-column {
-  display: grid;
-
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-
-  gap: 6px;
-
-  min-height: 0;
-}
-
-.dashboard-column > * {
-  min-height: 0;
-  min-width: 0;
-}
-</style>
