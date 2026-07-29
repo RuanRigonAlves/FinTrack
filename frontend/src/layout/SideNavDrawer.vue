@@ -14,6 +14,7 @@
 
   <v-navigation-drawer
     v-model="layoutStore.drawer"
+    :model-value="mobile ? layoutStore.drawer : true"
     :permanent="!mobile"
     :temporary="mobile"
     class="bg-background"
