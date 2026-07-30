@@ -11,14 +11,17 @@
       rounded
     />
 
-    <v-btn rounded elevation="1">
-      <v-icon class="mr-2"> mdi-login </v-icon>
-      Login</v-btn
-    >
+    <v-btn rounded elevation="1" @click="dialog.openDialog('transaction')">
+      <v-icon class="mr-2"> mdi-plus </v-icon>
+      Transaction
+    </v-btn>
   </div>
 </template>
 
 <script setup>
 import { useDisplay } from 'vuetify'
+import { useDialogStore } from '@/stores/dialog'
+
 const { mobile } = useDisplay()
+const dialog = useDialogStore()
 </script>

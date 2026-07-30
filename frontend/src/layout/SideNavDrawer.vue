@@ -6,6 +6,8 @@
       <v-btn v-if="mobile" icon="mdi-menu" variant="text" @click="layoutStore.toggleDrawer">
       </v-btn>
 
+      <v-btn icon="mdi-plus" variant="text" @click="dialog.openDialog('transaction')"> </v-btn>
+
       <v-btn icon="mdi-login" variant="text"> </v-btn>
 
       <v-btn icon="mdi-magnify" variant="text"> </v-btn>
@@ -52,11 +54,13 @@
 </template>
 
 <script setup>
+import { useDialogStore } from '@/stores/dialog'
 import { useDisplay } from 'vuetify'
 import { useLayoutStore } from '@/stores/layout'
 
 const layoutStore = useLayoutStore()
 const { mobile } = useDisplay()
+const dialog = useDialogStore()
 // Pages
 const pages = [
   {

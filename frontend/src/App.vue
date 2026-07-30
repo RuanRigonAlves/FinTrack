@@ -7,6 +7,8 @@
 
       <RouterView />
     </v-main>
+
+    <GlobalDialogs> </GlobalDialogs>
   </v-app>
 </template>
 
@@ -14,4 +16,5 @@
 import { RouterView } from 'vue-router'
 import SideNavDrawer from './layout/SideNavDrawer.vue'
 import ContentNavBar from './layout/ContentNavBar.vue'
+import GlobalDialogs from './layout/GlobalDialogs.vue'
 </script>
