@@ -6,11 +6,7 @@
       <v-btn v-if="mobile" icon="mdi-menu" variant="text" @click="layoutStore.toggleDrawer">
       </v-btn>
 
-      <v-btn icon="mdi-plus" variant="text" @click="dialog.openDialog('transaction')"> </v-btn>
-
       <v-btn icon="mdi-login" variant="text"> </v-btn>
-
-      <v-btn icon="mdi-magnify" variant="text"> </v-btn>
     </div>
   </v-navigation-drawer>
 
@@ -25,14 +21,7 @@
   >
     <!-- Title -->
     <div class="pt-2" v-if="!mobile">
-      <v-list-item
-        to="/"
-        height="50px"
-        max-width="100%"
-        rounded="lg"
-        variant="plain"
-        class="custom-item ml-3"
-      >
+      <v-list-item to="/" height="50px" max-width="100%" variant="plain" class="custom-item ml-3">
         <v-list-item-title class="pl-2">
           <span class="text-title-medium">FinTrack</span>
         </v-list-item-title>
@@ -45,7 +34,8 @@
       :to="page.url"
       density="compact"
       variant="text"
-      class="mb-1 mx-3 rounded-pill text-title-small text-medium-emphasis"
+      class="mb-1 mx-3 rounded text-title-small text-medium-emphasis"
+      :active-class="'bg-primary'"
     >
       <v-icon class="mr-1" size="21">{{ page.icon }}</v-icon>
       {{ page.name }}
@@ -67,11 +57,6 @@ const pages = [
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'mdi-view-dashboard',
-  },
-  {
-    name: 'Create Transaction',
-    url: '/transactions/new',
-    icon: 'mdi-plus-thick',
   },
   {
     name: 'Transactions',

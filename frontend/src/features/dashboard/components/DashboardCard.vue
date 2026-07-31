@@ -1,6 +1,6 @@
 <template>
   <v-sheet class="rounded-lg d-flex flex-column h-100 overflow-hidden" elevation="1">
-    <header class="d-flex justify-space-between align-center px-4" :class="headerClass">
+    <header class="d-flex justify-space-between align-center px-3 py-3" :class="headerClass">
       <slot name="header"> </slot>
     </header>
 
@@ -60,6 +60,6 @@ defineProps({
 .card-content {
   overflow: auto;
 
-  max-height: 230px;
+  height: 230px;
 }
 </style>

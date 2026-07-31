@@ -1,8 +1,8 @@
 <template>
-  <v-list-item class="mx-1 mb-2 mb-1 rounded">
+  <v-list-item class="mb-1 rounded">
     <div :class="!mobile ? 'd-flex justify-space-between align-center' : ''">
-      <div class="d-flex align-center ga-4 font-weight-semibold" v-if="!mobile">
-        <v-icon size="x-large" class="bg-background rounded-pill pa-6">{{ item.icon }}</v-icon>
+      <div class="d-flex align-center ga-3 semibold" v-if="!mobile">
+        <v-icon size="large" class="bg-background rounded-pill pa-5">{{ item.icon }}</v-icon>
 
         {{ item.title }}
       </div>

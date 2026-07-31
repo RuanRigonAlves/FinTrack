@@ -9,7 +9,7 @@
       <!-- Desktop -->
       <div class="d-flex justify-space-evenly ga-2" v-if="!mobile">
         <div
-          class="d-flex align-center text-body-small text-cente px-3 rounded-pill font-weight-medium text-medium-emphasis"
+          class="d-flex align-center text-body-small text-cente px-3 rounded-pill text-medium-emphasis"
           style="background-color: rgb(var(--v-theme-content))"
         >
           {{ item.groupName }}
@@ -17,13 +17,17 @@
 
         |
 
-        <div class="text-end font-weight-medium" :class="item.color" style="min-width: 80px">
+        <div
+          class="text-end font-weight-medium text-medium-emphasis"
+          :class="item.color"
+          style="min-width: 80px"
+        >
           {{ item.signal }} R$ {{ item.amount }}
         </div>
 
         |
 
-        <div class="font-weight-medium text-medium-emphasis">
+        <div class="text-medium-emphasis">
           <v-icon size="small"> mdi-calendar </v-icon>
 
           {{ item.formattedDayMonth }}
@@ -47,7 +51,7 @@
             {{ item.signal }} R$ {{ item.amount }}
           </div>
 
-          <div class="text-end font-weight-medium text-medium-emphasis">
+          <div class="text-end text-medium-emphasis">
             {{ item.formattedDayMonth }}
 
             <v-icon size="small"> mdi-calendar </v-icon>

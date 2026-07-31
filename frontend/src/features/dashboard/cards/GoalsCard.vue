@@ -41,7 +41,7 @@
         |
 
         <!-- Data da meta -->
-        <div class="font-weight-medium text-medium-emphasis">
+        <div class="text-medium-emphasis">
           <v-icon size="small"> mdi-target </v-icon>
           {{ item.deadlineFormatted }}
         </div>
@@ -78,7 +78,7 @@
             <div>{{ item.percentage }}%</div>
           </div>
 
-          <div class="text-end font-weight-medium text-medium-emphasis">
+          <div class="text-end text-medium-emphasis">
             {{ item.deadlineFormatted }}
 
             <v-icon size="small"> mdi-target </v-icon>

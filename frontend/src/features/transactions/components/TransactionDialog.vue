@@ -1,16 +1,19 @@
 <template>
-  <div v-if="categoriesStore.loading" class="w-100 h-100 d-flex justify-center align-center">
-    <v-progress-circular indeterminate :size="128"> </v-progress-circular>
-  </div>
-
   <v-dialog
     :model-value="modelValue"
     max-width="700"
     @update:model-value="emit('update:modelValue', $event)"
-    v-else
   >
     <v-sheet class="rounded-lg" elevation="1">
-      <div class="pa-4">
+      <div
+        v-if="categoriesStore.loading"
+        class="d-flex justify-center align-center"
+        style="height: 500px"
+      >
+        <v-progress-circular indeterminate :size="80"> </v-progress-circular>
+      </div>
+
+      <div class="pa-4" v-else>
         <transaction-form ref="transactionForm"> </transaction-form>
 
         <div class="d-flex justify-end mt-4 ga-6">

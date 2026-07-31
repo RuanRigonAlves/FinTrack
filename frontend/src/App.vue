@@ -2,13 +2,13 @@
   <v-app>
     <SideNavDrawer />
 
-    <v-main class="overflow-auto">
-      <ContentNavBar class="mb-2 px-4 py-2"></ContentNavBar>
+    <v-main>
+      <GlobalDialogs> </GlobalDialogs>
 
-      <RouterView />
+      <ContentNavBar class="pa-2"></ContentNavBar>
+
+      <RouterView class="px-2 pt-6" />
     </v-main>
-
-    <GlobalDialogs> </GlobalDialogs>
   </v-app>
 </template>
 

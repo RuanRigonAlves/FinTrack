@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid>
-    <v-row>
+  <v-container fluid class="pa-0">
+    <v-row density="comfortable">
       <v-col cols="12" lg="6">
         <BudgetCard></BudgetCard>
       </v-col>
