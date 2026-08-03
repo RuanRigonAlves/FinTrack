@@ -1,16 +1,14 @@
 <template>
   <v-app>
-    <v-layout>
-      <SideNavDrawer />
+    <SideNavDrawer />
 
-      <v-main>
-        <div class="fill-height d-flex flex-column pa-2">
-          <ContentNavBar class="mb-2"></ContentNavBar>
+    <v-main>
+      <GlobalDialogs> </GlobalDialogs>
 
-          <RouterView class="flex-grow-1" style="min-height: 0" />
-        </div>
-      </v-main>
-    </v-layout>
+      <ContentNavBar class="pa-2"></ContentNavBar>
+
+      <RouterView class="px-2 pt-6" />
+    </v-main>
   </v-app>
 </template>
 
@@ -18,4 +16,5 @@
 import { RouterView } from 'vue-router'
 import SideNavDrawer from './layout/SideNavDrawer.vue'
 import ContentNavBar from './layout/ContentNavBar.vue'
+import GlobalDialogs from './layout/GlobalDialogs.vue'
 </script>

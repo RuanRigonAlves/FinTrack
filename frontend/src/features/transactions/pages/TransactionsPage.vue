@@ -1,6 +1,6 @@
 <template>
-  <v-sheet class="rounded-lg" elevation="1">
-    <div class="h-100 pa-2">
+  <div class="h-100 pa-2">
+    <v-sheet class="h-100" rounded>
       <div class="mb-4 d-flex justify-center">
         <h2>List Of All Transactions</h2>
       </div>
@@ -48,8 +48,8 @@
           </div>
         </v-list-item>
       </v-list>
-    </div>
-  </v-sheet>
+    </v-sheet>
+  </div>
 </template>
 
 <script setup>

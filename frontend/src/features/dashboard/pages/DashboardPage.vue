@@ -1,5 +1,5 @@
 <template>
-  <div class="h-100">
+  <div>
     <div v-if="transactionStore.loading" class="w-100 h-100 d-flex justify-center align-center">
       <v-progress-circular indeterminate :size="128"> </v-progress-circular>
     </div>

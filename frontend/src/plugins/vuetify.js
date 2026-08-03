@@ -8,15 +8,15 @@ export default createVuetify({
   directives,
 
   theme: {
-    defaultTheme: 'system',
+    defaultTheme: 'dark',
     themes: {
       light: {
         dark: false,
         colors: {
-          background: '#dadada',
+          background: '#F9FBFC',
           surface: '#ffffff',
           content: '#f3f3f3',
-          primary: '#1867C0',
+          primary: '#2166EE',
         },
       },
 
@@ -24,9 +24,9 @@ export default createVuetify({
         dark: true,
         colors: {
           background: '#1a1a1a',
-          surface: '#212121',
+          surface: '#232323',
           content: '#343434',
-          primary: '#90caf9',
+          primary: '#2166EE',
         },
       },
     },

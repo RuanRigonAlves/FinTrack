@@ -1,21 +1,28 @@
 <template>
-  <div class="d-flex justify-space-between">
-    <v-text-field
-      elevation="1"
-      density="compact"
-      placeholder="Search"
-      variant="solo"
-      max-width="300px"
-      hide-details
-      single-line
-      rounded
-    />
+  <v-app-bar color="background" flat class="border-b pa-0" :height="45">
+    <div class="d-flex justify-space-between" style="width: 100%">
+      <v-text-field
+        elevation="1"
+        density="compact"
+        placeholder="Search"
+        variant="solo"
+        :style="{ 'max-width': !mobile ? '300px' : '150px' }"
+        hide-details
+        single-line
+      />
 
-    <v-btn rounded elevation="1">
-      <v-icon class="mr-2"> mdi-login </v-icon>
-      Login</v-btn
-    >
-  </div>
+      <v-btn elevation="1" class="bg-primary" @click="dialog.openDialog('transaction')">
+        <v-icon class="mr-2"> mdi-plus </v-icon>
+        Transaction
+      </v-btn>
+    </div>
+  </v-app-bar>
 </template>
 
-<style scoped></style>
+<script setup>
+import { useDisplay } from 'vuetify'
+import { useDialogStore } from '@/stores/dialog'
+
+const { mobile } = useDisplay()
+const dialog = useDialogStore()
+</script>

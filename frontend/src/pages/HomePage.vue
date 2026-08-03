@@ -1,7 +1,7 @@
 <template>
-  <v-sheet class="rounded-lg" elevation="1">
-    <div class="h-100 pa-2">
+  <div>
+    <v-sheet class="pa-2 h-100" elevation="1">
       <div>Home</div>
-    </div></v-sheet
-  >
+    </v-sheet>
+  </div>
 </template>

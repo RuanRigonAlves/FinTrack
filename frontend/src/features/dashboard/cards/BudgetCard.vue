@@ -2,7 +2,7 @@
   <DashboardCard>
     <!-- Budget Header -->
     <template #header>
-      <div class="d-flex align-center ga-2 font-weight-medium py-6">
+      <div class="d-flex align-center ga-2 font-weight-medium">
         <div class="">
           <div class="font-weight-regular text-medium-emphasis">Total Budget</div>
           <div>R$ {{ selectedBudget.budget }}</div>
@@ -42,17 +42,17 @@
 
     <!-- Budget List -->
     <template #content>
-      <v-sheet class="px-3">
+      <v-sheet>
         <v-list>
           <v-list-item v-for="categoryGroup in selectedBudget.categoryTotals">
             <div class="d-flex justify-space-between align-center">
-              <div class="d-flex align-center ga-4 font-weight-semibold">
-                <v-icon size="x-large" class="bg-background rounded-pill">{{
+              <div class="d-flex align-center ga-3">
+                <v-icon size="large" class="bg-background rounded-pill pa-5">{{
                   categoryGroup.group.icon
                 }}</v-icon>
 
                 <div>
-                  <div class="d-flex align-center ga-2">
+                  <div class="d-flex align-center ga-2 font-weight-semibold">
                     <div
                       class="group-color"
                       :style="{ backgroundColor: categoryGroup.group.color }"
@@ -61,13 +61,13 @@
                   </div>
 
                   <div class="d-flex ga-1">
-                    <div class="text-red">-R${{ categoryGroup.total.toFixed(2) }}</div>
+                    <div class="text-red font-thin">-R${{ categoryGroup.total.toFixed(2) }}</div>
                     <div class="text-medium-emphasis">spent</div>
                   </div>
                 </div>
               </div>
 
-              <div class="d-flex justify-space-evenly ga-2 text-medium-emphasis font-weight-medium">
+              <div class="d-flex justify-space-evenly ga-2 text-medium-emphasis">
                 ({{ categoryGroup.percentage }} %)
               </div>
             </div>

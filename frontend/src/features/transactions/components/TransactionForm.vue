@@ -1,6 +1,6 @@
 <template>
-  <v-form ref="form" class="d-flex ga-10" validate-on="blur">
-    <div style="width: 500px" class="pa-4">
+  <v-form ref="form" validate-on="blur">
+    <div>
       <v-btn-toggle v-model="formData.type" mandatory class="d-flex justify-center ga-4 mb-4">
         <v-btn value="expense"> Expense </v-btn>
         <v-btn value="income"> Income </v-btn>
@@ -39,23 +39,23 @@
       >
       </v-text-field>
 
-      <v-checkbox label="Is Recurring?" v-model="formData.isRecurring"> </v-checkbox>
-    </div>
-
-    <div>
       <div>
-        <v-date-picker width="500" v-model="formData.date"></v-date-picker>
+        <v-text-field
+          v-model="formData.date"
+          label="Date"
+          type="date"
+          :rules="[rules.required]"
+        ></v-text-field>
+      </div>
+      <v-checkbox label="Is Recurring?" v-model="formData.isRecurring"> </v-checkbox>
+
+      <!-- <div>
+        <v-date-picker v-model="formData.date"></v-date-picker>
 
         <div v-if="dateError" class="text-error d-flex justify-end px-4">
           {{ dateError }}
         </div>
-      </div>
-
-      <div class="d-flex justify-end mt-4 ga-6">
-        <v-btn color="red" @click="router.back()">Return</v-btn>
-
-        <v-btn color="primary" @click="submit">Register Transaction</v-btn>
-      </div>
+      </div> -->
     </div>
   </v-form>
 </template>
@@ -69,4 +69,8 @@ const router = useRouter()
 const { accounts } = useAccountsStore()
 
 const { formData, submit, filteredCategories, form, rules, dateError } = useTransactionForm()
+
+defineExpose({
+  submit,
+})
 </script>

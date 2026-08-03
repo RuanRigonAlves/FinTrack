@@ -1,8 +1,8 @@
 <template>
   <DashboardCard>
     <template #header>
-      <div class="w-100 d-flex justify-space-between align-center ga-2 font-weight-medium py-6">
-        <div class="font-weight-regular text-medium-emphasis py-2">
+      <div class="w-100 d-flex justify-space-between align-center ga-2 font-weight-medium">
+        <div class="font-weight-regular text-medium-emphasis">
           Spending in {{ formatDateMonthYear(selectedDate) }}
 
           <div class="text-high-emphasis font-weight-medium text-red">
@@ -24,7 +24,7 @@
     </template>
 
     <template #content>
-      <div style="height: 300px">
+      <div style="height: 200px">
         <Line :data="chartData" :options="chartOptions" />
       </div>
     </template>

@@ -1,6 +1,6 @@
 <template>
-  <v-sheet class="card rounded-lg d-flex flex-column h-100 overflow-hidden" elevation="1">
-    <header class="d-flex justify-space-between align-center px-4" :class="headerClass">
+  <v-sheet class="rounded-lg d-flex flex-column h-100 overflow-hidden" elevation="1">
+    <header class="d-flex justify-space-between align-center px-3 py-3" :class="headerClass">
       <slot name="header"> </slot>
     </header>
 
@@ -8,13 +8,34 @@
 
     <slot name="budget-bar"></slot>
 
-    <section class="card-content" :class="contentClass">
-      <slot name="content"> </slot>
-    </section>
+    <v-expand-transition>
+      <section v-show="!mobile || toggle" class="card-content" :class="contentClass">
+        <slot name="content"> </slot>
+      </section>
+    </v-expand-transition>
+
+    <v-btn
+      v-if="mobile"
+      :icon="toggle ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+      :ripple="false"
+      width="100%"
+      variant="plain"
+      @click="toggleValue"
+    ></v-btn>
   </v-sheet>
 </template>
 
 <script setup>
+import { useDisplay } from 'vuetify'
+import { ref } from 'vue'
+
+const { mobile } = useDisplay()
+const toggle = ref(false)
+
+function toggleValue() {
+  toggle.value = !toggle.value
+}
+
 defineProps({
   headerClass: {
     type: String,
@@ -37,10 +58,8 @@ defineProps({
 }
 
 .card-content {
-  flex: 1 1 0;
-
   overflow: auto;
 
-  min-height: 0;
+  height: 230px;
 }
 </style>

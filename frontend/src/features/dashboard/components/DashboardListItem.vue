@@ -1,20 +1,22 @@
 <template>
-  <v-list-item class="mx-1 mb-1 rounded">
-    <div class="d-flex justify-space-between align-center">
-      <div class="d-flex align-center ga-4 font-weight-semibold">
-        <v-icon size="x-large" class="bg-background rounded-pill">{{ item.icon }}</v-icon>
+  <v-list-item class="mb-1 rounded">
+    <div :class="!mobile ? 'd-flex justify-space-between align-center' : ''">
+      <div class="d-flex align-center ga-3 semibold" v-if="!mobile">
+        <v-icon size="large" class="bg-background rounded-pill pa-5">{{ item.icon }}</v-icon>
 
         {{ item.title }}
       </div>
 
-      <div class="d-flex justify-space-evenly ga-2" style="min-width:">
-        <slot name="side" :item="item"></slot>
-      </div>
+      <slot name="side" :item="item"></slot>
     </div>
   </v-list-item>
 </template>
 
 <script setup>
+import { useDisplay } from 'vuetify'
+
+const { mobile } = useDisplay()
+
 defineProps({
   item: Object,
 })
