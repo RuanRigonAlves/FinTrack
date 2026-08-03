@@ -2,7 +2,7 @@
 import { useCategoriesStore } from '@/stores/categories'
 import { useTransactionStore } from '@/stores/transactions'
 
-import { formatDate, formatDateMonthYear } from '@/utils/formatDate'
+import { formatDate } from '@/utils/formatDate'
 import { computed } from 'vue'
 
 export function useDashboardTransactions() {
@@ -12,30 +12,33 @@ export function useDashboardTransactions() {
 
   // Transactions
   const transactions = computed(() => {
-    return transactionStore.transactions.map((transaction) => ({
-      ...transaction,
+    return transactionStore.transactions.map(
+      (transaction) => ({
+        ...transaction,
 
-      formattedDayMonth: formatDate(transaction.date, 'dia/mes'),
-      monthYear: formatDateMonthYear(transaction.date),
+        formattedDayMonth: formatDate(transaction.date, 'dayMonth'),
+        monthYear: formatDate(transaction.date, 'monthYearNumeric'),
 
-      amount: Number(transaction.amount),
+        amount: Number(transaction.amount),
 
-      color: transaction.type === 'expense' ? 'text-red' : 'text-green',
+        color: transaction.type === 'expense' ? 'text-red' : 'text-green',
 
-      signal: transaction.type === 'expense' ? '-' : '+',
+        signal: transaction.type === 'expense' ? '-' : '+',
 
-      icon: transaction.category?.icon ?? 'mdi-circle-outline',
+        icon: transaction.category?.icon ?? 'mdi-circle-outline',
 
-      title: transaction.category?.name ?? 'Sem categoria',
+        title: transaction.category?.name ?? 'Sem categoria',
 
-      groupName: transaction.category?.group?.name,
+        groupName: transaction.category?.group?.name,
 
-      groupId: transaction.category?.group?.name.toLowerCase(),
+        groupId: transaction.category?.group?.name.toLowerCase(),
 
-      groupIcon: transaction.category?.group?.icon,
+        groupIcon: transaction.category?.group?.icon,
 
-      groupColor: transaction.category?.group?.color,
-    }))
+        groupColor: transaction.category?.group?.color,
+      }),
+      console.log(transactions),
+    )
   })
 
   // Recurring Transactions
@@ -57,7 +60,7 @@ export function useDashboardTransactions() {
 
   // Despesas do mes para o budget
   const getMonthlyExpenses = (monthReference) => {
-    const monthYear = formatDateMonthYear(monthReference)
+    const monthYear = formatDate(monthReference, 'monthYearNumeric')
 
     const monthTransactions = transactions.value.filter((transaction) => {
       return transaction.monthYear === monthYear && transaction.type === 'expense'

@@ -2,7 +2,7 @@
 import { useBudgetStore } from '@/stores/budgets'
 import { useDashboardTransactions } from './useDashboardTransactions'
 import { computed, ref } from 'vue'
-import { formatDateMonthYear } from '@/utils/formatDate'
+import { formatDate } from '@/utils/formatDate'
 import { useCategoryGroups } from './useCategoryGroups'
 
 export function useBudget() {
@@ -15,7 +15,9 @@ export function useBudget() {
 
   // Populate Budget
   function populateBudget(budget) {
-    const monthYear = formatDateMonthYear(budget.date)
+    // const monthYear = formatDateMonthYear(budget.date)
+    const monthYear = formatDate(budget.date, 'monthYearNumeric')
+
     const monthExpenses = getMonthlyExpenses(budget.date)
 
     const categoryTotals = []
@@ -70,7 +72,7 @@ export function useBudget() {
   const budgets = computed(() => {
     return budgetsStore.budgets.map((budget) => ({
       id: budget.id,
-      monthYear: formatDateMonthYear(budget.date),
+      monthYear: formatDate(budget.date, 'monthYearNumeric'),
     }))
   })
 

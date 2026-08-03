@@ -1,64 +1,79 @@
 <template>
   <div class="h-100 pa-2">
-    <v-sheet class="h-100" rounded>
-      <div class="mb-4 d-flex justify-center">
-        <h2>List Of All Transactions</h2>
-      </div>
+    <div v-if="transactionStore.loading" class="w-100 h-100 d-flex justify-center align-center">
+      <v-progress-circular indeterminate :size="128"> </v-progress-circular>
+    </div>
 
-      <v-divider></v-divider>
+    <v-sheet class="h-100" rounded v-else>
+      <v-card>
+        <v-card-title class="d-flex align-center pe-2">
+          <v-icon icon="mdi-swap-horizontal-variant"></v-icon>Transactions
 
-      <div v-if="transactionStore.loading" class="w-100 h-100 d-flex justify-center align-center">
-        <v-progress-circular indeterminate :size="128"> </v-progress-circular>
-      </div>
+          <v-spacer></v-spacer>
 
-      <v-list class="bg-transparent d-flex justify-center flex-wrap ga-2" v-else>
-        <v-list-item
-          v-for="transaction in transactionStore.transactions"
-          :key="transaction.id"
-          class="mb-2 rounded-lg border"
-          :to="`/transactions/${transaction.id}`"
-          style="width: 350px"
-        >
-          <div class="d-flex justify-space-between align-center">
-            <div class="d-flex align-center ga-4">
-              <v-avatar size="44" color="background">
-                <v-icon>{{ transaction.icon ? transaction.icon : 'mdi-cash' }}</v-icon>
-              </v-avatar>
+          <v-text-field
+            v-model="search"
+            density="compact"
+            label="Search"
+            prepend-inner-icon="mdi-magnify"
+            variant="solo-filled"
+            flat
+            hide-details
+            single-line
+          ></v-text-field>
+        </v-card-title>
+      </v-card>
 
-              <div>
-                <div class="font-weight-medium">{{ transaction.title }}</div>
+      <v-divider> </v-divider>
 
-                <div class="text-caption text-medium-emphasis">
-                  {{ transaction.description }}
-                </div>
-              </div>
-            </div>
-
-            <div class="text-right">
-              <div class="font-weight-bold" :class="transaction.color">
-                {{ transaction.signal }} R$ {{ transaction.amount }}
-              </div>
-
-              <div class="text-caption text-medium-emphasis">
-                {{ transaction.formattedDayMonth }}
-              </div>
-
-              <div></div>
-            </div>
-          </div>
-        </v-list-item>
-      </v-list>
+      <v-data-table
+        density="comfortable"
+        :search="search"
+        :items="transactionStore.transactions"
+        :items-per-page="mobile ? 10 : 15"
+        :headers="headers"
+        class="transaction-table"
+        @click:row="openTransaction"
+      >
+      </v-data-table>
     </v-sheet>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useTransactionStore } from '@/stores/transactions'
+import { useDisplay } from 'vuetify'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+const { mobile } = useDisplay()
 const transactionStore = useTransactionStore()
+const search = ref('')
+const headers = [
+  { key: 'title', title: 'Transaction' },
+  { key: 'type', title: 'Type' },
+  { key: 'amount', title: 'Amount' },
+  { key: 'dateFormat', title: 'Date' },
+]
 
 onMounted(() => {
   transactionStore.fetchTransactions()
 })
+
+function openTransaction(_, { item }) {
+  router.push(`transactions/${item.id}`)
+}
 </script>
+
+<style scoped>
+@media (max-width: 600px) {
+  .transaction-table :deep(th) {
+    padding-inline: 4px !important;
+  }
+
+  .transaction-table :deep(td) {
+    padding-inline: 4px !important;
+  }
+}
+</style>

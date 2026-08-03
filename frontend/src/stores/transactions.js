@@ -3,7 +3,7 @@ import { mockTransactions } from '@/mocks/mockTransactions'
 import { transactionService } from '@/services/transactionService'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { formatDate, formatDateMonthYear } from '@/utils/formatDate'
+import { formatDate } from '@/utils/formatDate'
 
 // Store
 export const useTransactionStore = defineStore(
@@ -86,6 +86,7 @@ export const useTransactionStore = defineStore(
         amount: Number(transaction.amount),
         description: transaction.description,
         date: transaction.date,
+        dateFormat: formatDate(transaction.date, 'input'),
         icon: transaction.icon,
 
         categoryId: transaction.category_id,
@@ -96,8 +97,8 @@ export const useTransactionStore = defineStore(
 
         createdAt: transaction.created_at,
         updatedAt: transaction.updated_at,
-        formattedDayMonth: formatDate(transaction.date, 'dia/mes'),
-        monthYear: formatDateMonthYear(transaction.date),
+        formattedDayMonth: formatDate(transaction.date, 'dayMonth'),
+        monthYear: formatDate(transaction.date, 'monthYearNumeric'),
 
         color: transaction.type === 'expense' ? 'text-red' : 'text-green',
 
