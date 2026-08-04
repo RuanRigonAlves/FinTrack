@@ -27,7 +27,6 @@ export function useBudget() {
       const group = getCategoryGroup(transaction.groupId)
 
       if (!group) {
-        console.log('Transação sem grupo:', transaction)
         continue
       }
 

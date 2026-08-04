@@ -41,22 +41,22 @@ export function useTransactionForm(transaction = null) {
 
   async function submit() {
     if (transaction) {
-      console.log('update transaction')
     } else {
       const { valid } = await form.value.validate()
 
-      if (!valid) return
+      if (!valid) return false
 
       formData.userId = 1
 
-      console.log(formData)
-      transactionStore.createTransaction({
+      await transactionStore.createTransaction({
         ...formData,
         amount: Number(formData.amount),
       })
     }
 
     reset()
+
+    return true
   }
 
   function reset() {

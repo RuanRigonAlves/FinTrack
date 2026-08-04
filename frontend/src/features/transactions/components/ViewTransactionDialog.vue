@@ -86,12 +86,4 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const dialog = useDialogStore()
-
-watch(
-  () => props.transaction,
-  (transaction) => {
-    console.log(transaction)
-  },
-  { immediate: true },
-)
 </script>

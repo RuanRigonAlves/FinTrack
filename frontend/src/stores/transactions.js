@@ -55,8 +55,6 @@ export const useTransactionStore = defineStore(
     async function createTransaction(transaction) {
       const payload = mapTransactionToApi(transaction)
 
-      console.log(payload)
-
       const newTransaction = await transactionService.create(payload)
 
       return newTransaction

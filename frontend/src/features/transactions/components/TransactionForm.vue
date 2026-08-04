@@ -48,14 +48,6 @@
         ></v-text-field>
       </div>
       <v-checkbox label="Is Recurring?" v-model="formData.isRecurring"> </v-checkbox>
-
-      <!-- <div>
-        <v-date-picker v-model="formData.date"></v-date-picker>
-
-        <div v-if="dateError" class="text-error d-flex justify-end px-4">
-          {{ dateError }}
-        </div>
-      </div> -->
     </div>
   </v-form>
 </template>

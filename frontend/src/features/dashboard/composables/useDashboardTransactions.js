@@ -12,33 +12,30 @@ export function useDashboardTransactions() {
 
   // Transactions
   const transactions = computed(() => {
-    return transactionStore.transactions.map(
-      (transaction) => ({
-        ...transaction,
+    return transactionStore.transactions.map((transaction) => ({
+      ...transaction,
 
-        formattedDayMonth: formatDate(transaction.date, 'dayMonth'),
-        monthYear: formatDate(transaction.date, 'monthYearNumeric'),
+      formattedDayMonth: formatDate(transaction.date, 'dayMonth'),
+      monthYear: formatDate(transaction.date, 'monthYearNumeric'),
 
-        amount: Number(transaction.amount),
+      amount: Number(transaction.amount),
 
-        color: transaction.type === 'expense' ? 'text-red' : 'text-green',
+      color: transaction.type === 'expense' ? 'text-red' : 'text-green',
 
-        signal: transaction.type === 'expense' ? '-' : '+',
+      signal: transaction.type === 'expense' ? '-' : '+',
 
-        icon: transaction.category?.icon ?? 'mdi-circle-outline',
+      icon: transaction.category?.icon ?? 'mdi-circle-outline',
 
-        title: transaction.category?.name ?? 'Sem categoria',
+      title: transaction.category?.name ?? 'Sem categoria',
 
-        groupName: transaction.category?.group?.name,
+      groupName: transaction.category?.group?.name,
 
-        groupId: transaction.category?.group?.name.toLowerCase(),
+      groupId: transaction.category?.group?.name.toLowerCase(),
 
-        groupIcon: transaction.category?.group?.icon,
+      groupIcon: transaction.category?.group?.icon,
 
-        groupColor: transaction.category?.group?.color,
-      }),
-      console.log(transactions),
-    )
+      groupColor: transaction.category?.group?.color,
+    }))
   })
 
   // Recurring Transactions
