@@ -2,7 +2,7 @@
 import { useCategoriesStore } from '@/stores/categories'
 import { useTransactionStore } from '@/stores/transactions'
 
-import { formatDate, formatDateMonthYear } from '@/utils/formatDate'
+import { formatDate } from '@/utils/formatDate'
 import { computed } from 'vue'
 
 export function useDashboardTransactions() {
@@ -15,8 +15,8 @@ export function useDashboardTransactions() {
     return transactionStore.transactions.map((transaction) => ({
       ...transaction,
 
-      formattedDayMonth: formatDate(transaction.date, 'dia/mes'),
-      monthYear: formatDateMonthYear(transaction.date),
+      formattedDayMonth: formatDate(transaction.date, 'dayMonth'),
+      monthYear: formatDate(transaction.date, 'monthYearNumeric'),
 
       amount: Number(transaction.amount),
 
@@ -57,7 +57,7 @@ export function useDashboardTransactions() {
 
   // Despesas do mes para o budget
   const getMonthlyExpenses = (monthReference) => {
-    const monthYear = formatDateMonthYear(monthReference)
+    const monthYear = formatDate(monthReference, 'monthYearNumeric')
 
     const monthTransactions = transactions.value.filter((transaction) => {
       return transaction.monthYear === monthYear && transaction.type === 'expense'

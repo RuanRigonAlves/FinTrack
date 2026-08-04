@@ -99,6 +99,4 @@ import { useGoals } from '../composables/useGoals.js'
 const { sortedGoals } = useGoals()
 const goals = sortedGoals
 const { mobile } = useDisplay()
-
-console.log(goals)
 </script>

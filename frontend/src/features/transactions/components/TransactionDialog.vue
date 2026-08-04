@@ -14,6 +14,20 @@
       </div>
 
       <div class="pa-4" v-else>
+        <v-snackbar v-model="snackbar.show" :timeout="-1" :color="snackbar.color" location="top">
+          <div class="d-flex align-center ga-3">
+            <v-progress-circular
+              v-if="snackbar.loading"
+              indeterminate
+              size="20"
+              width="2"
+              color="white"
+            />
+
+            <span>{{ snackbar.text }}</span>
+          </div>
+        </v-snackbar>
+
         <transaction-form ref="transactionForm"> </transaction-form>
 
         <div class="d-flex justify-end mt-4 ga-6">
@@ -37,14 +51,53 @@ defineProps({
   transaction: Object,
 })
 
+const snackbar = ref({
+  show: false,
+  loading: false,
+  color: 'primary',
+  text: '',
+})
+const saving = ref(false)
+
 const transactionForm = ref(null)
 const categoriesStore = useCategoriesStore()
 const dialog = useDialogStore()
 const emit = defineEmits(['update:modelValue'])
 
 async function save() {
-  const result = await transactionForm.value.submit()
+  snackbar.value = {
+    show: true,
+    loading: true,
+    color: 'primary',
+    text: 'Saving transaction...',
+  }
 
-  console.log(result)
+  try {
+    const success = await transactionForm.value.submit()
+
+    if (!success) {
+      snackbar.value.show = false
+      return
+    }
+
+    snackbar.value = {
+      show: true,
+      loading: false,
+      color: 'success',
+      text: 'Transaction created successfully!',
+    }
+
+    setTimeout(() => {
+      snackbar.value.show = false
+      dialog.closeDialog('transaction')
+    }, 1500)
+  } catch (err) {
+    snackbar.value = {
+      show: true,
+      loading: false,
+      color: 'error',
+      text: err.message ?? 'Unexpected error.',
+    }
+  }
 }
 </script>

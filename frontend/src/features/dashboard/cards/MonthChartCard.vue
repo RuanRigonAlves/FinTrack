@@ -3,7 +3,7 @@
     <template #header>
       <div class="w-100 d-flex justify-space-between align-center ga-2 font-weight-medium">
         <div class="font-weight-regular text-medium-emphasis">
-          Spending in {{ formatDateMonthYear(selectedDate) }}
+          Spending in {{ formatDate(selectedDate, 'monthYearNumeric') }}
 
           <div class="text-high-emphasis font-weight-medium text-red">
             - R${{ monthTotal.toFixed(2) }}
@@ -37,7 +37,7 @@ import DashboardCard from '../components/DashboardCard.vue'
 import { useSpendingChart } from '../composables/useSpendingChart.js'
 import { useDashboardTransactions } from '../composables/useDashboardTransactions.js'
 import { computed, ref } from 'vue'
-import { formatDateMonthYear } from '@/utils/formatDate.js'
+import { formatDate } from '@/utils/formatDate.js'
 import { Line } from 'vue-chartjs'
 import {
   Chart as ChartJS,

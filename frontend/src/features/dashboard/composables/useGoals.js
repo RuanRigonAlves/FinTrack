@@ -12,7 +12,7 @@ export function useGoals() {
     return store.goals.map((goal) => {
       return {
         ...goal,
-        deadlineFormatted: formatDate(goal.deadline, 'mes/ano'),
+        deadlineFormatted: formatDate(goal.deadline, 'monthYear'),
         title: goal.name ?? 'Sem Titulo',
         percentage: Number(Number((goal.currentAmount / goal.targetAmount) * 100).toFixed(1)),
       }
