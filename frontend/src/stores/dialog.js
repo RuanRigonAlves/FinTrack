@@ -3,24 +3,28 @@ import { ref } from 'vue'
 
 export const useDialogStore = defineStore('dialog', () => {
   const dialogs = ref({
-    transaction: false,
+    transaction: {
+      open: false,
+      payload: null,
+    },
+    viewTransaction: {
+      open: false,
+      payload: null,
+    },
   })
 
-  const payload = ref(null)
-
   function openDialog(dialogName, data = null) {
-    payload.value = data
-    dialogs.value[dialogName] = true
+    dialogs.value[dialogName].payload = data
+    dialogs.value[dialogName].open = true
   }
 
   function closeDialog(dialogName) {
-    dialogs.value[dialogName] = false
-    payload.value = null
+    dialogs.value[dialogName].open = false
+    dialogs.value[dialogName].payload = null
   }
 
   return {
     dialogs,
-    payload,
     openDialog,
     closeDialog,
   }

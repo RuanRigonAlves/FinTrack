@@ -45,7 +45,9 @@ import { onMounted, ref } from 'vue'
 import { useTransactionStore } from '@/stores/transactions'
 import { useDisplay } from 'vuetify'
 import { useRouter } from 'vue-router'
+import { useDialogStore } from '@/stores/dialog'
 
+const dialog = useDialogStore()
 const router = useRouter()
 const { mobile } = useDisplay()
 const transactionStore = useTransactionStore()
@@ -62,7 +64,7 @@ onMounted(() => {
 })
 
 function openTransaction(_, { item }) {
-  router.push(`transactions/${item.id}`)
+  dialog.openDialog('viewTransaction', item)
 }
 </script>
 
